@@ -1,0 +1,343 @@
+<XmlTransformation Version="1.0"><Transform Direction="ToCds"><SelectEach dest="DATAPACKET\ROWDATA\ROW" from="\tns:cintaTestigoDigital"><SelectEach dest="grupoComprobantes\ROWgrupoComprobantes" from="\arrayGruposComprobantesFiscales\grupoComprobantes"><Select dest="@codigoTipoComprobante" from="\codigoTipoComprobante"/><SelectEach dest="detalleComprobante\ROWdetalleComprobante" from="\arrayDetallesComprobantes\detalleComprobante"><Select dest="@numeroComprobante" from="\numeroComprobante"/><Select dest="@idImpositivoReceptor" from="\idImpositivoReceptor"/><Select dest="@fechaHoraEmision" from="\fechaHoraEmision"/><Select dest="@codigoMoneda" from="\codigoMoneda"/><Select dest="@cotizacionMoneda" from="\cotizacionMoneda"/><Select dest="@textoLibre1" from="\textoLibre1"/><Select dest="@textoLibre2" from="\textoLibre2"/><Select dest="@textoLibre3" from="\textoLibre3"/><Select dest="@importeTotal" from="\importeTotal"/><Select dest="@codigoFormaPago" from="\arrayFormasPago\formaPago\codigoFormaPago"/><Select dest="@textoLibre" from="\arrayFormasPago\formaPago\textoLibre"/><Select dest="@importePago" from="\arrayFormasPago\formaPago\importePago"/><Select dest="@arrayComprobantesAsociados" from="\arrayComprobantesAsociados"/><Select dest="@unidadesMtx" from="\arrayItems\item\unidadesMtx"/><Select dest="@codigo" from="\arrayItems\item\codigo"/><Select dest="@descripcion" from="\arrayItems\item\descripcion"/><Select dest="@cantidad" from="\arrayItems\item\cantidad"/><Select dest="@codigoUnidadMedida" from="\arrayItems\item\codigoUnidadMedida"/><Select dest="@precioUnitario" from="\arrayItems\item\precioUnitario"/><Select dest="@codigoCondicionIVA" from="\arrayItems\item\codigoCondicionIVA"/><Select dest="@item_porcentajeIVA" from="\arrayItems\item\porcentajeIVA"/><Select dest="@importeIVA" from="\arrayItems\item\importeIVA"/><Select dest="@importeItem" from="\arrayItems\item\importeItem"/><Select dest="@arrayOtrosTributos" from="\arrayOtrosTributos"/><Select dest="@subtotalIVA_porcentajeIVA" from="\arraySubtotalesIVA\subtotalIVA\porcentajeIVA"/><Select dest="@importe" from="\arraySubtotalesIVA\subtotalIVA\importe"/><Select dest="@anulado" from="\anulado"/><Select dest="@tipoHabilitacionComprobante" from="\tipoHabilitacionComprobante"/><Select dest="@razonSocialReceptor" from="\razonSocialReceptor"/><Select dest="@domicilioComercialReceptor" from="\domicilioComercialReceptor"/><Select dest="@codigoTipoDocReceptor" from="\codigoTipoDocReceptor"/><Select dest="@numeroDocReceptor" from="\numeroDocReceptor"/><Select dest="@importeGravado" from="\importeGravado"/></SelectEach></SelectEach><Select dest="@tns" from="@xmlns:tns"/><Select dest="@xsi" from="@xmlns:xsi"/><Select dest="@codigoFabricaCF" from="\controladorFiscal\codigoFabricaCF"/><Select dest="@codigoMarcaCF" from="\controladorFiscal\codigoMarcaCF"/><Select dest="@codigoModeloCF" from="\controladorFiscal\codigoModeloCF"/><Select dest="@numeroSerieCF" from="\controladorFiscal\numeroSerieCF"/><Select dest="@versionEquipo" from="\controladorFiscal\versionEquipo"/><Select dest="@cuitEmisor" from="\cuitEmisor"/><Select dest="@numeroPuntoVenta" from="\numeroPuntoVenta"/><Select dest="@fechaDesde" from="\fechaDesde"/><Select dest="@fechaHasta" from="\fechaHasta"/><Select dest="@arrayGruposComprobantesNoFiscHomo" from="\arrayGruposComprobantesNoFiscHomo"/><Select dest="@arrayGruposComprobantesDonacion" from="\arrayGruposComprobantesDonacion"/><Select dest="@codigoTipoInfRep" from="\codigoTipoInfRep"/><SelectEach dest="grupoComprobanteNoFiscOtros\ROWgrupoComprobanteNoFiscOtros" from="\arrayGruposComprobantesNoFiscOtros\grupoComprobanteNoFiscOtros"><Select dest="@codigoTipoComprobante" from="\codigoTipoComprobante"/><Select dest="@descTipoComprobante" from="\descTipoComprobante"/><Select dest="@primerNumeroComprobante" from="\primerNumeroComprobante"/><Select dest="@ultimoNumeroComprobante" from="\ultimoNumeroComprobante"/><Select dest="@cantidadComprobantes" from="\cantidadComprobantes"/></SelectEach></SelectEach></Transform><XmlSchema RootName="cintaTestigoDigital"><![CDATA[<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cintaTestigoDigital" type="cintaTestigoDigitalType"/>
+  <xs:complexType name="cintaTestigoDigitalType">
+    <xs:sequence>
+      <xs:element name="controladorFiscal" type="controladorFiscalType"/>
+      <xs:element name="cuitEmisor" type="cuitEmisorType"/>
+      <xs:element name="numeroPuntoVenta" type="numeroPuntoVentaType"/>
+      <xs:element name="fechaDesde" type="fechaDesdeType"/>
+      <xs:element name="fechaHasta" type="fechaHastaType"/>
+      <xs:element name="arrayGruposComprobantesFiscales" type="arrayGruposComprobantesFiscalesType"/>
+      <xs:element name="arrayGruposComprobantesNoFiscHomo" type="arrayGruposComprobantesNoFiscHomoType"/>
+      <xs:element name="arrayGruposComprobantesDonacion" type="arrayGruposComprobantesDonacionType"/>
+      <xs:element name="arrayGruposComprobantesNoFiscOtros" type="arrayGruposComprobantesNoFiscOtrosType"/>
+      <xs:element name="codigoTipoInfRep" type="codigoTipoInfRepType"/>
+    </xs:sequence>
+    <xs:attribute name="xmlns:tns" type="xs:string"/>
+    <xs:attribute name="xmlns:xsi" type="xs:string"/>
+  </xs:complexType>
+  <xs:element name="controladorFiscal" type="controladorFiscalType"/>
+  <xs:complexType name="controladorFiscalType">
+    <xs:sequence>
+      <xs:element name="codigoFabricaCF" type="codigoFabricaCFType"/>
+      <xs:element name="codigoMarcaCF" type="codigoMarcaCFType"/>
+      <xs:element name="codigoModeloCF" type="codigoModeloCFType"/>
+      <xs:element name="numeroSerieCF" type="numeroSerieCFType"/>
+      <xs:element name="versionEquipo" type="versionEquipoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="codigoFabricaCF" type="codigoFabricaCFType"/>
+  <xs:simpleType name="codigoFabricaCFType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoMarcaCF" type="codigoMarcaCFType"/>
+  <xs:simpleType name="codigoMarcaCFType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoModeloCF" type="codigoModeloCFType"/>
+  <xs:simpleType name="codigoModeloCFType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="numeroSerieCF" type="numeroSerieCFType"/>
+  <xs:simpleType name="numeroSerieCFType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="versionEquipo" type="versionEquipoType"/>
+  <xs:simpleType name="versionEquipoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="cuitEmisor" type="cuitEmisorType"/>
+  <xs:simpleType name="cuitEmisorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="numeroPuntoVenta" type="numeroPuntoVentaType"/>
+  <xs:simpleType name="numeroPuntoVentaType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="fechaDesde" type="fechaDesdeType"/>
+  <xs:simpleType name="fechaDesdeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="fechaHasta" type="fechaHastaType"/>
+  <xs:simpleType name="fechaHastaType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayGruposComprobantesFiscales" type="arrayGruposComprobantesFiscalesType"/>
+  <xs:complexType name="arrayGruposComprobantesFiscalesType">
+    <xs:sequence>
+      <xs:element name="grupoComprobantes" type="grupoComprobantesType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="grupoComprobantes" type="grupoComprobantesType"/>
+  <xs:complexType name="grupoComprobantesType">
+    <xs:sequence>
+      <xs:element name="codigoTipoComprobante" type="codigoTipoComprobanteType"/>
+      <xs:element name="arrayDetallesComprobantes" type="arrayDetallesComprobantesType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="codigoTipoComprobante" type="codigoTipoComprobanteType"/>
+  <xs:simpleType name="codigoTipoComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayDetallesComprobantes" type="arrayDetallesComprobantesType"/>
+  <xs:complexType name="arrayDetallesComprobantesType">
+    <xs:sequence>
+      <xs:element name="detalleComprobante" type="detalleComprobanteType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="detalleComprobante" type="detalleComprobanteType"/>
+  <xs:complexType name="detalleComprobanteType">
+    <xs:sequence>
+      <xs:element name="numeroComprobante" type="numeroComprobanteType"/>
+      <xs:element name="idImpositivoReceptor" type="idImpositivoReceptorType"/>
+      <xs:element name="fechaHoraEmision" type="fechaHoraEmisionType"/>
+      <xs:element name="codigoMoneda" type="codigoMonedaType"/>
+      <xs:element name="cotizacionMoneda" type="cotizacionMonedaType"/>
+      <xs:element name="textoLibre1" type="textoLibre1Type"/>
+      <xs:element name="textoLibre2" type="textoLibre2Type"/>
+      <xs:element name="textoLibre3" type="textoLibre3Type"/>
+      <xs:element name="importeTotal" type="importeTotalType"/>
+      <xs:element name="arrayFormasPago" type="arrayFormasPagoType"/>
+      <xs:element name="arrayComprobantesAsociados" type="arrayComprobantesAsociadosType"/>
+      <xs:element name="arrayItems" type="arrayItemsType"/>
+      <xs:element name="arrayOtrosTributos" type="arrayOtrosTributosType"/>
+      <xs:element name="arraySubtotalesIVA" type="arraySubtotalesIVAType"/>
+      <xs:element name="anulado" type="anuladoType"/>
+      <xs:element name="tipoHabilitacionComprobante" type="tipoHabilitacionComprobanteType"/>
+      <xs:element name="razonSocialReceptor" type="razonSocialReceptorType"/>
+      <xs:element name="domicilioComercialReceptor" type="domicilioComercialReceptorType"/>
+      <xs:element name="codigoTipoDocReceptor" type="codigoTipoDocReceptorType"/>
+      <xs:element name="numeroDocReceptor" type="numeroDocReceptorType"/>
+      <xs:element name="importeGravado" type="importeGravadoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="numeroComprobante" type="numeroComprobanteType"/>
+  <xs:simpleType name="numeroComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="idImpositivoReceptor" type="idImpositivoReceptorType"/>
+  <xs:simpleType name="idImpositivoReceptorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="fechaHoraEmision" type="fechaHoraEmisionType"/>
+  <xs:simpleType name="fechaHoraEmisionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoMoneda" type="codigoMonedaType"/>
+  <xs:simpleType name="codigoMonedaType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="cotizacionMoneda" type="cotizacionMonedaType"/>
+  <xs:simpleType name="cotizacionMonedaType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="textoLibre1" type="textoLibre1Type"/>
+  <xs:simpleType name="textoLibre1Type">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="textoLibre2" type="textoLibre2Type"/>
+  <xs:simpleType name="textoLibre2Type">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="textoLibre3" type="textoLibre3Type"/>
+  <xs:simpleType name="textoLibre3Type">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importeTotal" type="importeTotalType"/>
+  <xs:simpleType name="importeTotalType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayFormasPago" type="arrayFormasPagoType"/>
+  <xs:complexType name="arrayFormasPagoType">
+    <xs:sequence>
+      <xs:element name="formaPago" type="formaPagoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="formaPago" type="formaPagoType"/>
+  <xs:complexType name="formaPagoType">
+    <xs:sequence>
+      <xs:element name="codigoFormaPago" type="codigoFormaPagoType"/>
+      <xs:element name="textoLibre" type="textoLibreType"/>
+      <xs:element name="importePago" type="importePagoType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="codigoFormaPago" type="codigoFormaPagoType"/>
+  <xs:simpleType name="codigoFormaPagoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="textoLibre" type="textoLibreType"/>
+  <xs:simpleType name="textoLibreType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importePago" type="importePagoType"/>
+  <xs:simpleType name="importePagoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayComprobantesAsociados" type="arrayComprobantesAsociadosType"/>
+  <xs:simpleType name="arrayComprobantesAsociadosType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayItems" type="arrayItemsType"/>
+  <xs:complexType name="arrayItemsType">
+    <xs:sequence>
+      <xs:element name="item" type="itemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="item" type="itemType"/>
+  <xs:complexType name="itemType">
+    <xs:sequence>
+      <xs:element name="unidadesMtx" type="unidadesMtxType"/>
+      <xs:element name="codigo" type="codigoType"/>
+      <xs:element name="descripcion" type="descripcionType"/>
+      <xs:element name="cantidad" type="cantidadType"/>
+      <xs:element name="codigoUnidadMedida" type="codigoUnidadMedidaType"/>
+      <xs:element name="precioUnitario" type="precioUnitarioType"/>
+      <xs:element name="codigoCondicionIVA" type="codigoCondicionIVAType"/>
+      <xs:element name="porcentajeIVA" type="porcentajeIVAType"/>
+      <xs:element name="importeIVA" type="importeIVAType"/>
+      <xs:element name="importeItem" type="importeItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="unidadesMtx" type="unidadesMtxType"/>
+  <xs:simpleType name="unidadesMtxType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigo" type="codigoType"/>
+  <xs:simpleType name="codigoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="descripcion" type="descripcionType"/>
+  <xs:simpleType name="descripcionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="cantidad" type="cantidadType"/>
+  <xs:simpleType name="cantidadType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoUnidadMedida" type="codigoUnidadMedidaType"/>
+  <xs:simpleType name="codigoUnidadMedidaType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="precioUnitario" type="precioUnitarioType"/>
+  <xs:simpleType name="precioUnitarioType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoCondicionIVA" type="codigoCondicionIVAType"/>
+  <xs:simpleType name="codigoCondicionIVAType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="porcentajeIVA" type="porcentajeIVAType"/>
+  <xs:simpleType name="porcentajeIVAType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importeIVA" type="importeIVAType"/>
+  <xs:simpleType name="importeIVAType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importeItem" type="importeItemType"/>
+  <xs:simpleType name="importeItemType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayOtrosTributos" type="arrayOtrosTributosType"/>
+  <xs:simpleType name="arrayOtrosTributosType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arraySubtotalesIVA" type="arraySubtotalesIVAType"/>
+  <xs:complexType name="arraySubtotalesIVAType">
+    <xs:sequence>
+      <xs:element name="subtotalIVA" type="subtotalIVAType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="subtotalIVA" type="subtotalIVAType"/>
+  <xs:complexType name="subtotalIVAType">
+    <xs:sequence>
+      <xs:element name="porcentajeIVA" type="porcentajeIVAType"/>
+      <xs:element name="importe" type="importeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="porcentajeIVA" type="porcentajeIVAType"/>
+  <xs:simpleType name="porcentajeIVAType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importe" type="importeType"/>
+  <xs:simpleType name="importeType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="anulado" type="anuladoType"/>
+  <xs:simpleType name="anuladoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="tipoHabilitacionComprobante" type="tipoHabilitacionComprobanteType"/>
+  <xs:simpleType name="tipoHabilitacionComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="razonSocialReceptor" type="razonSocialReceptorType"/>
+  <xs:simpleType name="razonSocialReceptorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="domicilioComercialReceptor" type="domicilioComercialReceptorType"/>
+  <xs:simpleType name="domicilioComercialReceptorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoTipoDocReceptor" type="codigoTipoDocReceptorType"/>
+  <xs:simpleType name="codigoTipoDocReceptorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="numeroDocReceptor" type="numeroDocReceptorType"/>
+  <xs:simpleType name="numeroDocReceptorType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="importeGravado" type="importeGravadoType"/>
+  <xs:simpleType name="importeGravadoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayGruposComprobantesNoFiscHomo" type="arrayGruposComprobantesNoFiscHomoType"/>
+  <xs:simpleType name="arrayGruposComprobantesNoFiscHomoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayGruposComprobantesDonacion" type="arrayGruposComprobantesDonacionType"/>
+  <xs:simpleType name="arrayGruposComprobantesDonacionType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="arrayGruposComprobantesNoFiscOtros" type="arrayGruposComprobantesNoFiscOtrosType"/>
+  <xs:complexType name="arrayGruposComprobantesNoFiscOtrosType">
+    <xs:sequence>
+      <xs:element name="grupoComprobanteNoFiscOtros" type="grupoComprobanteNoFiscOtrosType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="grupoComprobanteNoFiscOtros" type="grupoComprobanteNoFiscOtrosType"/>
+  <xs:complexType name="grupoComprobanteNoFiscOtrosType">
+    <xs:sequence>
+      <xs:element name="codigoTipoComprobante" type="codigoTipoComprobanteType"/>
+      <xs:element name="descTipoComprobante" type="descTipoComprobanteType"/>
+      <xs:element name="primerNumeroComprobante" type="primerNumeroComprobanteType"/>
+      <xs:element name="ultimoNumeroComprobante" type="ultimoNumeroComprobanteType"/>
+      <xs:element name="cantidadComprobantes" type="cantidadComprobantesType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="codigoTipoComprobante" type="codigoTipoComprobanteType"/>
+  <xs:simpleType name="codigoTipoComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="descTipoComprobante" type="descTipoComprobanteType"/>
+  <xs:simpleType name="descTipoComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="primerNumeroComprobante" type="primerNumeroComprobanteType"/>
+  <xs:simpleType name="primerNumeroComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="ultimoNumeroComprobante" type="ultimoNumeroComprobanteType"/>
+  <xs:simpleType name="ultimoNumeroComprobanteType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="cantidadComprobantes" type="cantidadComprobantesType"/>
+  <xs:simpleType name="cantidadComprobantesType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:element name="codigoTipoInfRep" type="codigoTipoInfRepType"/>
+  <xs:simpleType name="codigoTipoInfRepType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></XmlSchema><CdsSkeleton/><XslTransform/><Skeleton><![CDATA[<?xml version="1.0"?><DATAPACKET Version="2.0"><METADATA><FIELDS><FIELD attrname="tns" fieldtype="string" WIDTH="58"/><FIELD attrname="xsi" fieldtype="string" WIDTH="41"/><FIELD attrname="codigoFabricaCF" fieldtype="string" WIDTH="2"/><FIELD attrname="codigoMarcaCF" fieldtype="string" WIDTH="2"/><FIELD attrname="codigoModeloCF" fieldtype="string" WIDTH="2"/><FIELD attrname="numeroSerieCF" fieldtype="string" WIDTH="10"/><FIELD attrname="versionEquipo" fieldtype="string" WIDTH="4"/><FIELD attrname="cuitEmisor" fieldtype="string" WIDTH="11"/><FIELD attrname="numeroPuntoVenta" fieldtype="string" WIDTH="1"/><FIELD attrname="fechaDesde" fieldtype="string" WIDTH="19"/><FIELD attrname="fechaHasta" fieldtype="string" WIDTH="19"/><FIELD attrname="arrayGruposComprobantesNoFiscHomo" fieldtype="string" WIDTH="32"/><FIELD attrname="arrayGruposComprobantesDonacion" fieldtype="string" WIDTH="32"/><FIELD attrname="codigoTipoInfRep" fieldtype="string" WIDTH="3"/><FIELD attrname="grupoComprobantes" fieldtype="nested"><FIELDS><FIELD attrname="codigoTipoComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="detalleComprobante" fieldtype="nested"><FIELDS><FIELD attrname="numeroComprobante" fieldtype="string" WIDTH="4"/><FIELD attrname="idImpositivoReceptor" fieldtype="string" WIDTH="1"/><FIELD attrname="fechaHoraEmision" fieldtype="string" WIDTH="19"/><FIELD attrname="codigoMoneda" fieldtype="string" WIDTH="3"/><FIELD attrname="cotizacionMoneda" fieldtype="string" WIDTH="1"/><FIELD attrname="textoLibre1" fieldtype="string" WIDTH="32"/><FIELD attrname="textoLibre2" fieldtype="string" WIDTH="32"/><FIELD attrname="textoLibre3" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="importeTotal" fieldtype="string" WIDTH="9"/><FIELD attrname="codigoFormaPago" fieldtype="string" WIDTH="2"/><FIELD attrname="textoLibre" fieldtype="string" WIDTH="8"/><FIELD attrname="importePago" fieldtype="string" WIDTH="9"/><FIELD attrname="arrayComprobantesAsociados" fieldtype="string" WIDTH="32"/><FIELD attrname="unidadesMtx" fieldtype="string" WIDTH="1"/><FIELD attrname="codigo" fieldtype="string" WIDTH="6"/><FIELD attrname="descripcion" fieldtype="string" WIDTH="13"/><FIELD attrname="cantidad" fieldtype="string" WIDTH="8"/><FIELD attrname="codigoUnidadMedida" fieldtype="string" WIDTH="1"/><FIELD attrname="precioUnitario" fieldtype="string" WIDTH="13"/><FIELD attrname="codigoCondicionIVA" fieldtype="string" WIDTH="1"/><FIELD attrname="item_porcentajeIVA" fieldtype="string" WIDTH="5"/><FIELD attrname="importeIVA" fieldtype="string" WIDTH="8"/><FIELD attrname="importeItem" fieldtype="string" WIDTH="9"/><FIELD attrname="arrayOtrosTributos" fieldtype="string" WIDTH="32"/><FIELD attrname="subtotalIVA_porcentajeIVA" fieldtype="string" WIDTH="5"/><FIELD attrname="importe" fieldtype="string" WIDTH="8"/><FIELD attrname="anulado" fieldtype="string" WIDTH="1"/><FIELD attrname="tipoHabilitacionComprobante" fieldtype="string" WIDTH="1"/><FIELD attrname="razonSocialReceptor" fieldtype="string" WIDTH="23"/><FIELD attrname="domicilioComercialReceptor" fieldtype="string" WIDTH="22"/><FIELD attrname="codigoTipoDocReceptor" fieldtype="string" WIDTH="2"/><FIELD attrname="numeroDocReceptor" fieldtype="string" WIDTH="11"/><FIELD attrname="importeGravado" fieldtype="string" WIDTH="9"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></FIELD><FIELD attrname="grupoComprobanteNoFiscOtros" fieldtype="nested"><FIELDS><FIELD attrname="codigoTipoComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="descTipoComprobante" fieldtype="string" WIDTH="19"/><FIELD attrname="primerNumeroComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="ultimoNumeroComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="cantidadComprobantes" fieldtype="string" WIDTH="2"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/><METADATA><FIELDS><FIELD attrname="tns" fieldtype="string" WIDTH="58"/><FIELD attrname="xsi" fieldtype="string" WIDTH="41"/><FIELD attrname="codigoFabricaCF" fieldtype="string" WIDTH="2"/><FIELD attrname="codigoMarcaCF" fieldtype="string" WIDTH="2"/><FIELD attrname="codigoModeloCF" fieldtype="string" WIDTH="2"/><FIELD attrname="numeroSerieCF" fieldtype="string" WIDTH="10"/><FIELD attrname="versionEquipo" fieldtype="string" WIDTH="4"/><FIELD attrname="cuitEmisor" fieldtype="string" WIDTH="11"/><FIELD attrname="numeroPuntoVenta" fieldtype="string" WIDTH="1"/><FIELD attrname="fechaDesde" fieldtype="string" WIDTH="19"/><FIELD attrname="fechaHasta" fieldtype="string" WIDTH="19"/><FIELD attrname="arrayGruposComprobantesNoFiscHomo" fieldtype="string" WIDTH="32"/><FIELD attrname="arrayGruposComprobantesDonacion" fieldtype="string" WIDTH="32"/><FIELD attrname="codigoTipoInfRep" fieldtype="string" WIDTH="3"/><FIELD attrname="grupoComprobantes" fieldtype="nested"><FIELDS><FIELD attrname="codigoTipoComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="detalleComprobante" fieldtype="nested"><FIELDS><FIELD attrname="numeroComprobante" fieldtype="string" WIDTH="4"/><FIELD attrname="idImpositivoReceptor" fieldtype="string" WIDTH="1"/><FIELD attrname="fechaHoraEmision" fieldtype="string" WIDTH="19"/><FIELD attrname="codigoMoneda" fieldtype="string" WIDTH="3"/><FIELD attrname="cotizacionMoneda" fieldtype="string" WIDTH="1"/><FIELD attrname="textoLibre1" fieldtype="string" WIDTH="32"/><FIELD attrname="textoLibre2" fieldtype="string" WIDTH="32"/><FIELD attrname="textoLibre3" fieldtype="bin.hex" SUBTYPE="Text"/><FIELD attrname="importeTotal" fieldtype="string" WIDTH="9"/><FIELD attrname="codigoFormaPago" fieldtype="string" WIDTH="2"/><FIELD attrname="textoLibre" fieldtype="string" WIDTH="8"/><FIELD attrname="importePago" fieldtype="string" WIDTH="9"/><FIELD attrname="arrayComprobantesAsociados" fieldtype="string" WIDTH="32"/><FIELD attrname="unidadesMtx" fieldtype="string" WIDTH="1"/><FIELD attrname="codigo" fieldtype="string" WIDTH="6"/><FIELD attrname="descripcion" fieldtype="string" WIDTH="13"/><FIELD attrname="cantidad" fieldtype="string" WIDTH="8"/><FIELD attrname="codigoUnidadMedida" fieldtype="string" WIDTH="1"/><FIELD attrname="precioUnitario" fieldtype="string" WIDTH="13"/><FIELD attrname="codigoCondicionIVA" fieldtype="string" WIDTH="1"/><FIELD attrname="item_porcentajeIVA" fieldtype="string" WIDTH="5"/><FIELD attrname="importeIVA" fieldtype="string" WIDTH="8"/><FIELD attrname="importeItem" fieldtype="string" WIDTH="9"/><FIELD attrname="arrayOtrosTributos" fieldtype="string" WIDTH="32"/><FIELD attrname="subtotalIVA_porcentajeIVA" fieldtype="string" WIDTH="5"/><FIELD attrname="importe" fieldtype="string" WIDTH="8"/><FIELD attrname="anulado" fieldtype="string" WIDTH="1"/><FIELD attrname="tipoHabilitacionComprobante" fieldtype="string" WIDTH="1"/><FIELD attrname="razonSocialReceptor" fieldtype="string" WIDTH="23"/><FIELD attrname="domicilioComercialReceptor" fieldtype="string" WIDTH="22"/><FIELD attrname="codigoTipoDocReceptor" fieldtype="string" WIDTH="2"/><FIELD attrname="numeroDocReceptor" fieldtype="string" WIDTH="11"/><FIELD attrname="importeGravado" fieldtype="string" WIDTH="9"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></FIELD><FIELD attrname="grupoComprobanteNoFiscOtros" fieldtype="nested"><FIELDS><FIELD attrname="codigoTipoComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="descTipoComprobante" fieldtype="string" WIDTH="19"/><FIELD attrname="primerNumeroComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="ultimoNumeroComprobante" fieldtype="string" WIDTH="2"/><FIELD attrname="cantidadComprobantes" fieldtype="string" WIDTH="2"/></FIELDS><PARAMS/></FIELD></FIELDS><PARAMS/></METADATA><ROWDATA/></DATAPACKET>
+]]></Skeleton></XmlTransformation>

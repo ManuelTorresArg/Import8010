@@ -4,14 +4,19 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Grids, StdCtrls, StrUtils, EncdDecd;
+  Dialogs, Grids, StdCtrls, StrUtils, EncdDecd, xmldom, DB, DBClient, Provider,
+  Xmlxform, DBGrids;
 
 type
   TForm1 = class(TForm)
     Button1: TButton;
-    StringGrid1: TStringGrid;
     OpenDialog1: TOpenDialog;
     Memo1: TMemo;
+    Memo2: TMemo;
+    DBGrid1: TDBGrid;
+    XMLTransformProvider1: TXMLTransformProvider;
+    DataSource1: TDataSource;
+    ClientDataSet1: TClientDataSet;
     function DepreStream(Stm : TMemoryStream; origen, fin: string):TMemoryStream;
     procedure Button1Click(Sender: TObject);
   private
@@ -57,6 +62,8 @@ begin
     lineasPEM_encode.free;
     lineasPEM_decode.free;
     lineasPEM_final.free;
+
+
 
   end;
 

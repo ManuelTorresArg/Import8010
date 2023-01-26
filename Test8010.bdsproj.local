@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
+	<Transactions>
     <Transaction>2023/01/25 20:22:58.371.pas,C:\Users\WIN7-VBOX\Documents\Borland Studio Projects\Unit1.pas=C:\Users\WIN7-VBOX\Documents\Borland Studio Projects\Test8010\Unit1.pas</Transaction>
     <Transaction>2023/01/25 20:22:58.371.dfm,C:\Users\WIN7-VBOX\Documents\Borland Studio Projects\Unit1.dfm=C:\Users\WIN7-VBOX\Documents\Borland Studio Projects\Test8010\Unit1.dfm</Transaction>
   </Transactions>
